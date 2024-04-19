@@ -1,0 +1,80 @@
+.container {
+  background-color: #fbc6cfde;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  margin-right: 5px; /* Thêm khoảng cách giữa các từ */
+}
+
+.heart {
+  position: absolute;
+  animation: heartMovement 3s ease-in-out forwards, heartBlink 3s 3s infinite ease-in-out;
+  // transform: translateX(-50%);
+ 
+}
+
+/* Hoạt hình di chuyển trái tim từ dưới lên, rồi qua trái và phải */
+@keyframes heartMovement {
+  0% {
+    transform: translateY(50vh) translateX(-50px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(46.15vh) translateX(46.15px);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(36.9vh) translateX(-46.15px);
+  }
+  60% {
+    transform: translateY(23.45vh) translateX(46.15px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(11.73vh) translateX(-46.15px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0vh) translateX(46.15px);
+    opacity: 1;
+  }
+
+}
+
+/* Hoạt hình nhấp nháy vô tận */
+@keyframes heartBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  
+}
+
+/* Hoạt hình bounce của từ */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.word.bounce {
+  animation-name: bounce;
+}
